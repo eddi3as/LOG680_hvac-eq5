@@ -26,9 +26,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - uses: sibiraj-s/action-eslint@v2
-      with:
-        eslint-args: '--ignore-path=.gitignore --quiet'
-        extensions: 'js,jsx,ts,tsx'
-        annotations: true
     - run: npm test
