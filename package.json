@@ -4,7 +4,7 @@
   "description": "log680 lab2",
   "main": "index.js",
   "scripts": {
-    "test": "npx eslint . && jest",
+    "test": "jest",
     "stop": "taskkill /f /im node.exe",
     "build": "tsc -b --verbose",
     "start": "node dist/index.js",
