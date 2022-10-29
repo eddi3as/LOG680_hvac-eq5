@@ -1,4 +1,8 @@
+import { verifyTemp } from "./utils/tempcal";
 const signalR = require("@microsoft/signalr");
+const fetch = require('node-fetch');
+const AC_ON = "lower";
+const HEATER_ON = "higher";
 
 let connection = new signalR.HubConnectionBuilder()
     .withUrl("http://159.203.50.71/SensorHub?token=NQ1JVDCqdg")
@@ -6,7 +10,20 @@ let connection = new signalR.HubConnectionBuilder()
 
 connection.on("ReceiveSensorData", (data: any) => {
     console.log(data);
-});
+    if(verifyTemp(data, 5.00, 1.00) === HEATER_ON){
+      fetch("http://159.203.50.71/api/Hvac/NQ1JVDCqdg/TurnOnHeater/6")
+      .then((result: { json: () => any; }) => result.json())
+      .then((textformat: any) => console.log(textformat))
+    }
+    else if(verifyTemp(data, 5.00, 1.00) === AC_ON){
+      fetch("http://159.203.50.71/api/Hvac/NQ1JVDCqdg/TurnOnAc/6")
+      .then((result: { json: () => any; }) => result.json())
+      .then((textformat: any) => console.log(textformat))
+    }
+});/*
+To start the AC of the unit : GET {serverUrl}/api/Hvac/{token}/TurnOnAc/{nbTicks}
+To start the Heater of the unit : GET {serverUrl}/api/Hvac/{token}/TurnOnHeater/{nbTicks}
+*/
 
 
 

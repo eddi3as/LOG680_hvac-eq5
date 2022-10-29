@@ -1,4 +1,5 @@
-import { verifyTemp } from "../utils/tempcal"
+import { verifyTemp } from "../utils/tempcal";
+
 describe("test add function", () => {
     it("should return lower", () => {
         let data = { data: 10.00 };
