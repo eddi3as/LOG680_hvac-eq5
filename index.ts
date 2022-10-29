@@ -1,10 +1,11 @@
 import { verifyTemp } from "./utils/tempcal";
-const signalR = require("@microsoft/signalr");
-const fetch = require('node-fetch');
+
+import signalR = require("@microsoft/signalr");
+import fetch = require('node-fetch');
 const AC_ON = "lower";
 const HEATER_ON = "higher";
 
-let connection = new signalR.HubConnectionBuilder()
+const connection = new signalR.HubConnectionBuilder()
     .withUrl("http://159.203.50.71/SensorHub?token=NQ1JVDCqdg")
     .build();
 
