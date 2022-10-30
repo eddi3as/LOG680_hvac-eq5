@@ -1,6 +1,5 @@
 name: hvaceq5_ci
 
-
 on:
   push:
     branches: [ "master" ]
