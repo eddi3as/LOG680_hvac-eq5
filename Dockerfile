@@ -8,8 +8,6 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm run build
-
 COPY . .
 
 EXPOSE 8080
