@@ -7,7 +7,9 @@ import signalR = require("@microsoft/signalr");
 import fetch = require('node-fetch');
 
 const AC_ON = "lower";
+
 const HEATER_ON = "higher";
+
 const base_url = 'http://159.203.50.71/';
 const api = 'api/Hvac/';
 let token = 'NQ1JVDCqdg';
