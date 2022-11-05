@@ -8,7 +8,7 @@
     "lint": "npx eslint .",
     "stop": "taskkill /f /im node.exe",
     "build": "tsc -b --verbose",
-    "start": "node dist/index.js",
+    "start": "node dist/index.js NQ1JVDCqdg 5 1 6",
     "build-w-assets": "npm run build-dev && npm run copyassets",
     "build-dev": "tsc -b --verbose && npm run copyviews",
     "copyviews": "copyfiles --all ./views/* ./dist",
