@@ -93,22 +93,7 @@ La branche feature est utilisé pour les nouvelles demandes qui ne sont pas déj
 
 
 # To build the project
-1. You need to generate a token with github. To be able to fetch the data, the permission needed are the section 'Repo' and 'Project'.
-   https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
-2. You need to create a file: '.env.local' and put your recently generated token in it. The file will look like this:
-   AUTH_TOKEN="YouNeedToPutTheTokenHere"
-3. If it's the first tiime, build the project using the commands in the directory root/metrics
+1. If it's the first tiime, build the project using the commands in the directory
    npm install
-   npm start
-4. Lancer le projet avec
-   yarn dev
-  
-
-
-# Reference
-https://create-react-app.dev/docs/getting-started																							#Create ReactApp
-https://www.apollographql.com/docs/react/get-started/                                         												#Setup the project
-https://www.apollographql.com/docs/react/networking/authentication/                           												#Allow connection with password
-https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token		#Setup token. Need all section repo and project.
-https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint     												#Setup Github API Graphql
-https://nextjs.org/docs/basic-features/data-fetching/get-static-props                         												#Build the data
+   npm run build
+   npm run start
