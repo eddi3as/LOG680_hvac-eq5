@@ -94,7 +94,7 @@ La branche feature est utilisé pour les nouvelles demandes qui ne sont pas déj
 
 
 # To build the project
-1. If it's the first tiime, build the project using the commands in the directory
-   npm install
-   npm run build
+1. If it's the first tiime, build the project using the commands in the directory<br>
+   npm install<br>
+   npm run build<br>
    npm run start
