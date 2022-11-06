@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "*****Running eslint******"
+
+git stash -q --keep-index
+
+npm run lint
+
+status=$?
+
+exit $status
