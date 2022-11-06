@@ -1,7 +1,8 @@
 # Kanban Metrics
-Nos metrics de kanban on été divisé en deux grand groupe, "issues" et "pull request".
+Nos metrics de kanban on été divisé en trois grand groupe, "issues", "pull request" et "builds".
 Pour les métriques "issues" ils ont été demandés lors du laboratoire.
 Pour les métriques "pull request" nous avons décidé de ceux-ci.
+Pour les métriques "builds" nous avons décidé de ceux-ci.
 
 ## Issues Metrics:
 ● Temps (lead time) pour une tâche donnée<br>
