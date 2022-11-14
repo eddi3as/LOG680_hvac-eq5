@@ -1,9 +1,11 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
+dotenv.config();/**/
 import { verifyTemp } from "./utils/tempcal";
 import { verifyArgs } from "./utils/argsvalidator";
 import signalR = require("@microsoft/signalr");
 import fetch = require('node-fetch');
+
+//require('dotenv').config();//ERROR ESLINT
 
 const AC_ON = "lower";
 const HEATER_ON = "higher";
@@ -45,7 +47,7 @@ connection.on("ReceiveSensorData", (data: any) => {
     }
 });
 
-const port = Number.parseInt(process.env.PORT || '3000');
+const port = Number.parseInt(process.env.PORT || '4000');
 if (Number.isNaN(port)) {
   console.error('PORT must be a number');
   process.exit(1);
