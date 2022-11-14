@@ -36,4 +36,12 @@ describe("test verifyArgs function", () => {
         expect(resp[4]).toBe(20);
         expect(resp[5]).toBe(6);
     });
+    
+    it("should return defaults", () => {
+        let data = ['a', 'a', 'adsvdva', 36, 20 , 5];
+        let resp = verifyArgs(data);
+        expect(resp[3]).toBe(36);
+        expect(resp[4]).toBe(20);
+        expect(resp[5]).toBe(5);
+    });
 });
