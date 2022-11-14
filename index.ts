@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import { verifyTemp } from "./utils/tempcal";
 import { verifyArgs } from "./utils/argsvalidator";
 import signalR = require("@microsoft/signalr");
@@ -7,10 +9,10 @@ const AC_ON = "lower";
 const HEATER_ON = "higher";
 const base_url = 'http://159.203.50.71/';
 const api = 'api/Hvac/';
-let token = 'NQ1JVDCqdg';
-let temp_max = 5;
-let temp_min = 1;
-let ticks = 6;
+let token = process.env.TOKEN;
+let temp_max = parseFloat(process.env.TEMP_MAX);
+let temp_min = parseFloat(process.env.TEMP_MIN);
+let ticks = parseInt(process.env.TICKS);
 
 const args = process.argv; // [token] [limite chaud] [limite froid] [ticks]
 
