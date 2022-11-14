@@ -1,8 +1,8 @@
 # Kanban Metrics
-Nos metrics de kanban on été divisé en trois grand groupe, "issues", "pull request" et "builds".
-Pour les métriques "issues" ils ont été demandés lors du laboratoire.
-Pour les métriques "pull request" nous avons décidé de ceux-ci.
-Pour les métriques "builds" nous avons décidé de ceux-ci.
+Nos metrics de kanban on été divisé en trois grand groupe, "issues", "pull request" et "builds".<br>
+Pour les métriques "issues" ils ont été demandés lors du laboratoire.<br>
+Pour les métriques "pull request" nous avons décidé de ceux-ci.<br>
+Pour les métriques "builds" nous avons décidé de ceux-ci.<br>
 
 ## Issues Metrics:
 ● Temps (lead time) pour une tâche donnée<br>
@@ -94,7 +94,7 @@ La branche feature est utilisé pour les nouvelles demandes qui ne sont pas déj
 
 
 # To build the project
-1. If it's the first tiime, build the project using the commands in the directory
-   npm install
-   npm run build
+1. If it's the first tiime, build the project using the commands in the directory<br>
+   npm install<br>
+   npm run build<br>
    npm run start
