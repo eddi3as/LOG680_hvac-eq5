@@ -2,10 +2,10 @@ import * as dotenv from 'dotenv';
 dotenv.config();/**/
 import { verifyTemp } from "./utils/tempcal";
 import { verifyArgs } from "./utils/argsvalidator";
+import { RespCtrl } from "./controller/respCtrl";
 import signalR = require("@microsoft/signalr");
 import fetch = require('node-fetch');
-
-//require('dotenv').config();//ERROR ESLINT
+import { connectToDatabase } from "./service/database.service";
 
 const AC_ON = "lower";
 const HEATER_ON = "higher";
@@ -29,6 +29,8 @@ temp_max = newData[3];
 temp_min = newData[4];
 ticks = newData[5];
 
+const dataCollector = new RespCtrl();
+
 const connection = new signalR.HubConnectionBuilder()
     .withUrl(base_url + "SensorHub?token=" + token)
     .build();
@@ -38,12 +40,22 @@ connection.on("ReceiveSensorData", (data: any) => {
     if(verifyTemp(data, temp_max, temp_min) === HEATER_ON){
       fetch(base_url + api + token +"/TurnOnHeater/" + ticks)
       .then((result: { json: () => any; }) => result.json())
-      .then((textformat: any) => console.log(textformat))
+      .then(async (textformat: any) => {
+        data.msg = textformat.Response;
+        console.log(textformat);
+        const value = await dataCollector.addEntry(data);
+        console.log(value);
+      })
     }
     else if(verifyTemp(data, temp_max, temp_min) === AC_ON){
       fetch(base_url + api+ token + "/TurnOnAc/" + ticks)
       .then((result: { json: () => any; }) => result.json())
-      .then((textformat: any) => console.log(textformat))
+      .then(async (textformat: any) => {
+        data.msg = textformat.Response;
+        console.log(textformat);
+        const value = await dataCollector.addEntry(data);
+        console.log(value);
+      })
     }
 });
 
@@ -53,5 +65,14 @@ if (Number.isNaN(port)) {
   process.exit(1);
 }
 
-connection.start();
+
+
+connectToDatabase().then(()=>{
+  console.info(`Serveur disponible à http://localhost:${port}`);
+  connection.start();
+
+}).catch((error: Error) => {
+  console.error("Database connection failed", error);
+  process.exit();
+});
 
